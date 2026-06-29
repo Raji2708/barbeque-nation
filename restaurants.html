@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #1f2937;
+    }
+
+    .container {
+      margin-top: 90px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 25px;
+    }
+
+    .breadcrumb span.active {
+      background: #ffe6d5;
+      color: #ff7a00;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* Header */
+    
+      .navbar {
+      background: #fbead6;;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        color: #ff6a00;
+        font-size: 20px;
+    }
+
+    .nav-link {
+      font-size: 15px;
+      color: #374151;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-link.active {
+      color: #ff6a00;
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #ff6a00;
+    }
+
+    .new {
+      background: #6dbb1a;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-left: 4px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-btn {
+      background: #ffe6d5;
+      color: #ff6a00;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffe6d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6a00;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffe6d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6a00;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-link:hover
+    {
+        color: #ff6a00;
+    }
+
+
+.restaurants {
+  width: 92%;
+  margin: 60px auto;
+}
+
+/* Header */
+.header-row {
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:40px;
+}
+
+.heading h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.heading p {
+  color: #5f6368;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.search input {
+  width: 340px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #ff8a3d;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Cards Layout */
+.cards {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:28px;
+}
+
+/* Card */
+.card {
+ background:#fff;
+  border-radius:16px;
+  border:1px solid #f0f0f0;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.img-wrap {
+  position: relative;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #2d2d2d;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Card Content */
+.card-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 16px;
+}
+
+/* Chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.chips span {
+  background: #f5f6f7;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.chips .highlight {
+  background: #ffe8da;
+  color: #ff6a00;
+  font-weight: 600;
+}
+
+/* Button */
+.btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  background: #ff6a00;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #e55d00;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .cards {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+  }
+  .header-row {
+    flex-direction: column;
+  }
+  .search input {
+    width: 100%;
+  }
+}
+
+
+    /* FOOTER */
+.footer {
+    background: #fff4eb;
+    padding: 60px 80px 20px;
+    color: #333;
+}
+
+/* Main Container */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+/* Columns */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #000;
+}
+
+/* Logo */
+.footer-logo {
+    width: 140px;
+    margin-bottom: 20px;
+}
+
+/* Right Column */
+.right-col {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 40px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons i {
+    width: 36px;
+    height: 36px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Text */
+.footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Store Buttons */
+.store-buttons img {
+    width: 150px;
+    display: block;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+.bottom-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.bottom-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .right-col {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-left">
+        <div class="logo">
+            🔥 BARBEQUE NATION
+        </div>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="happiness-card.html">Happiness card</a>
+      <a class="nav-link" href="new.html">Whats on BBQ</a>
+      <a class="nav-link" href="deals.html">Deals</a>
+      <a class="nav-link active">Restaurants</a>
+      <a class="nav-link" href="catering.html">Catering <span class="new">New</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-btn">Delivery/Takeaway</div>
+      <div class="nav-btn">📍 Omr, Chennai</div>
+      <div class="icon">👤</div>
+      <div class="icon">☰</div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <span>Home</span>
+      <span>/</span>
+      <span class="active">Restaurants</span>
+    </div>
+
+    <section class="restaurants">
+
+  <!-- Heading + Search -->
+  <div class="header-row">
+    <div class="heading">
+      <h1>Best Buffet Restaurant Near You with Unlimited BBQ & Live Grills</h1>
+      <p>
+        Discover why Barbeque Nation is the best buffet restaurant near you! Enjoy our unlimited BBQ buffet featuring live grills,
+        an array of mouth-watering cuisines from India and around the world, and a warm, inviting atmosphere. Perfect for family
+        dinners, celebrations, and food lovers alike.
+      </p>
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Search for restaurants">
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r1.jpg" alt="">
+        <div class="badge">21 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Bengaluru</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Indiranagar</span>
+          <span>Koramangala 1st Block</span>
+          <span>JP Nagar</span>
+          <span>ITPL, Whitefield</span>
+          <span class="highlight">+ 17 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r2.jpg" alt="">
+        <div class="badge">15 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Mumbai</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Sector 5, Nerul</span>
+          <span>Sector 11, Belapur</span>
+          <span>Atria Mall, Worli</span>
+          <span>Metro Junction Mall, Kalyan</span>
+          <span class="highlight">+ 11 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r3.jpg" alt="">
+        <div class="badge">12 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in New Delhi</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Unity Mall, Janakpuri</span>
+          <span>Sector C, Vasant Kunj</span>
+          <span>Connaught Place, N Block</span>
+          <span>Sector 10, Rohini</span>
+          <span class="highlight">+ 8 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r4.jpg" alt="">
+        <div class="badge">8 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Chennai</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Ome</span>
+          <span>T Nagar Bazullah road</span>
+          <span>Vadapalani</span>
+          <span>The Grand Mall Velacher</span>
+          <span class="highlight">+ 4 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r5.jpg" alt="">
+        <div class="badge">8 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Kolkata</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Sector 5,Salt Lake </span>
+          <span>Park Street</span>
+          <span>Diamond Plaza, Jessore Road</span>
+          <span>Lake Malll, Kalighat</span>
+          <span class="highlight">+ 9 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r6.jpg" alt="">
+        <div class="badge">10 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Pune</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>R Deccan Mall,JM Road</span>
+          <span>Kalyani Nagar</span>
+          <span>Sayaji hotel,Wakad</span>
+          <span>Clover hill Plaza,NIBM Road</span>
+          <span class="highlight">+ 6 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r7.jpg" alt="">
+        <div class="badge">14 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Hyderabad</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Banjara Hills</span>
+          <span>Forum Sujana Maall,Kukatpally</span>
+          <span>Alcazar Mall,Jubilee Hills</span>
+          <span>Rukmani colony,AS Rao Nagar</span>
+          <span class="highlight">+ 10 More</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r8.jpg" alt="">
+        <div class="badge">4 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Gurugram</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Sohna Road</span>
+          <span>Ambience Mall, Sector 24</span>
+          <span>SS Omnia Mall, Sector 86</span>
+          <span>M3M IFC, Sector 66</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img-wrap">
+        <img src="r9.jpg" alt="">
+        <div class="badge">12 Branches</div>
+      </div>
+
+      <div class="card-body">
+        <h2>Best Buffet Restaurants in Asansol</h2>
+        <p>Experience live grills at your table, a diverse buffet, and delightful desserts. Perfect for gatherings or celebrations.</p>
+
+        <div class="chips">
+          <span>Sentrum Mall, Kanyapur</span>
+        </div>
+
+        <button class="btn">Explore</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  </div>
+
+    
+        <!-- Footer -->
+    <footer class="footer">
+    <div class="footer-container">
+
+        <!-- Column 1 -->
+        <div class="footer-col logo-col">
+            
+            <a href="#">Our Story</a>
+            <a href="#">News</a>
+            <a href="#">Happiness Card</a>
+            <a href="#">Careers</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+            <a href="#">Location</a>
+            <a href="#">Faq</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">BBQN Partnership</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+            <a href="#">Blogs</a>
+            <a href="#">What's On BBQN</a>
+            <a href="#">Nutrition Information</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+            <a href="#">Corporate Enquiry</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="footer-col right-col">
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+
+            <p class="footer-text">
+                Experience the vibrant atmosphere of our restaurants.
+                Immerse yourself in the aroma of grilled delicacies.
+            </p>
+
+            <div class="store-buttons">
+                <img src="googleplay.jpg" alt="Google Play">
+                <img src="appstore.jpg" alt="App Store">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        <p>© All Rights Reserved by BBQ Nation</p>
+        <div class="bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Term & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

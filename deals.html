@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exclusive Deals – Barbeque Nation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    font-family: 'Inter', sans-serif;
+    background:#ffffff;
+    color:#222;
+}
+
+/* HEADER */
+header{
+    background:#fff4ec;
+    padding:14px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-weight:700;
+    font-size:20px;
+    color:#ff6a00;
+}
+
+.navbar {
+      background: #fbead6;;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        color: #ff6a00;
+        font-size: 20px;
+    }
+
+    .nav-link {
+      font-size: 15px;
+      color: #374151;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-link.active {
+      color: #ff6a00;
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #ff6a00;
+    }
+
+    .new {
+      background: #6dbb1a;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-left: 4px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-btn {
+      background: #ffe6d5;
+      color: #ff6a00;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffe6d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6a00;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffe6d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6a00;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-link:hover
+    {
+        color: #ff6a00;
+    }
+
+/* ================= HERO ================= */
+.hero{
+    background:linear-gradient(180deg,#f07c00,#f26600);
+    padding:80px 0;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+/* LEFT CONTENT */
+.badge1{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(255,255,255,0.4);
+    padding:8px 14px;
+    border-radius:30px;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:64px;
+    font-weight:800;
+    color:#fff;
+    line-height:1.1;
+}
+
+.hero h1 span{
+    color:#ffd45c;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:420px;
+    font-size:16px;
+    line-height:1.7;
+    color:#ffe8d5;
+}
+
+.cta{
+    margin-top:30px;
+    background:#e63946;
+    color:#fff;
+    border:none;
+    padding:16px 28px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ================= DEAL CARD ================= */
+.deal-card{
+    background:#fff;
+    border-radius:24px;
+    padding:26px;
+    position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,0.2);
+}
+
+.deal-tag{
+    position:absolute;
+    top:0;
+    right:0;
+    background:#f59e0b;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:0 24px 0 24px;
+    font-size:14px;
+    font-weight:700;
+}
+
+.deal-title{
+    font-size:26px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.deal-title span{
+    color:#ff6a00;
+}
+
+.valid{
+    color:#ff6a00;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.deal-desc{
+    color:#555;
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:22px;
+}
+
+.book-btn{
+    background:#e07a00;
+    color:#fff;
+    border:none;
+    padding:12px 20px;
+    border-radius:20px;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* ================= MINI CARDS ================= */
+.mini-cards{
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.mini{
+    background:#fff;
+    border-radius:16px;
+    padding:16px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.mini-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+}
+
+.green{background:#e8f9ee;color:#16a34a;}
+.blue{background:#e0f2fe;color:#0284c7;}
+
+.free{
+    background:#16a34a;
+    color:#fff;
+    padding:6px 14px;
+    font-size:13px;
+    font-weight:700;
+    border-radius:14px;
+}
+
+.free.blue{
+    background:#2563eb;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .hero-container{
+        grid-template-columns:1fr;
+    }
+    .hero h1{
+        font-size:48px;
+    }
+}
+@media(max-width:600px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    header{
+        padding:14px 20px;
+    }
+}
+.section{
+    max-width:1200px;
+    margin:80px auto;
+    padding:0 20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.card{
+    background:#fff8ef;
+    border:1px solid #ffd6b0;
+    border-radius:18px;
+    padding:28px 26px 30px;
+    position:relative;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:-60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:140px;
+    height:140px;
+    background:linear-gradient(135deg,#ffcc00,#ff8c00);
+    border-radius:50%;
+    border:8px solid #fff8ef;
+}
+
+.badge{
+    position:absolute;
+    top:18px;
+    right:18px;
+    background:#ff8c00;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:8px;
+}
+
+.card h4{
+    margin-top:80px;
+    font-size:22px;
+    font-weight:800;
+    color:#ff6a00;
+}
+
+.card p{
+    margin-top:14px;
+    font-size:14.5px;
+    color:#475569;
+    line-height:1.6;
+}
+
+.divider{
+    width:50px;
+    height:4px;
+    background:#ffc266;
+    margin:18px auto;
+    border-radius:2px;
+}
+
+.meta{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.meta span{font-weight:600}
+
+.explore{
+    margin-top:20px;
+    background:#ff6a00;
+    color:#fff;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .hero-container{grid-template-columns:1fr}
+    .cards{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+    .cards{grid-template-columns:1fr}
+}
+
+/* FOOTER */
+.footer {
+    background: #fff4eb;
+    padding: 60px 80px 20px;
+    color: #333;
+}
+
+/* Main Container */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+/* Columns */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #000;
+}
+
+/* Logo */
+.footer-logo {
+    width: 140px;
+    margin-bottom: 20px;
+}
+
+/* Right Column */
+.right-col {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 40px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons i {
+    width: 36px;
+    height: 36px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Text */
+.footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Store Buttons */
+.store-buttons img {
+    width: 150px;
+    display: block;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+.bottom-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.bottom-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .right-col {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+    <div class="nav-left">
+        <div class="logo">
+            🔥 BARBEQUE NATION
+        </div>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="happiness-card.html">Happiness card</a>
+      <a class="nav-link" href="new.html">Whats on BBQ</a>
+      <a class="nav-link active">Deals</a>
+      <a class="nav-link" href="restaurants.html">Restaurants</a>
+      <a class="nav-link" href="catering.html">Catering <span class="new">New</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-btn">Delivery/Takeaway</div>
+      <div class="nav-btn">📍 Omr, Chennai</div>
+      <div class="icon">👤</div>
+      <div class="icon">☰</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+    <div class="hero-container">
+
+        <!-- LEFT -->
+        <div>
+            <div class="badge1">⭐ LIMITED TIME DEALS</div>
+
+            <h1>Exclusive<br><span>Deals</span></h1>
+
+            <p>
+                Indulge in extraordinary flavors with our special offers.
+                Savor the perfect blend of spices and savings on your next
+                dining adventure.
+            </p>
+
+            <button class="cta">Browse All Deals ↓</button>
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+            <div class="deal-card">
+                <div class="deal-tag">Hot Deals</div>
+
+                <div class="deal-title">
+                    Sizzling 7@777 – Dine as a group of 7 and enjoy the buffet at just <span>₹777</span> per person.
+                </div>
+
+                <div class="valid">Valid: Mon, Tue, Wed & more</div>
+
+                <div class="deal-desc">
+                    Turn every get-together into a sizzling celebration!
+                    Gather your gang of 7 and enjoy Barbeque Nation...
+                </div>
+
+                <button class="book-btn">Book Now</button>
+            </div>
+
+            <div class="mini-cards">
+                <div class="mini">
+                    <div class="mini-left">
+                        <div class="icon green">🎁</div>
+                        <strong>Birthday Special: Free Cake</strong>
+                    </div>
+                    <div class="free">FREE</div>
+                </div>
+
+                <div class="mini">
+                    <div class="mini-left">
+                        <div class="icon blue">⭐</div>
+                        <strong>Kids Eat Free: Under 6</strong>
+                    </div>
+                    <div class="free blue">FREE</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="section">
+    <div class="cards">
+
+        <div class="card">
+            <div class="badge">🍽 Dine-In Deal</div>
+            <h4>Earn 10% Smile Coins on  <br>
+             Every Booking!</h4>
+            <p>Book your table through our app & get 10% smile coins as cashback! 1 Smile</p>
+            <div class="divider"></div>
+            <div class="meta">📍 <span>Outlets:</span> 205</div>
+            <div class="meta">📅 <span>Days:</span> Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div>
+            <button class="explore">Explore Offer →</button>
+        </div>
+
+        <div class="card">
+            <div class="badge">🍽 Dine-In Deal</div>
+            <h4>Enjoy the Unlimited <br> Aflatoon Buffet</h4>
+            <p>Barbeque Nation’s Aflatoon Buffet brings unlimited flavours at an amazing...</p>
+            <div class="divider"></div>
+            <div class="meta">📍 <span>Outlets:</span> 6</div>
+            <div class="meta">📅 <span>Days:</span> Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div>
+            <button class="explore">Explore Offer →</button>
+        </div>
+
+        <div class="card">
+            <div class="badge">🍽 Dine-In Deal</div>
+            <h4>Sizzler Fest Is Here – <br> Smoky, Hot & Unlimited!</h4>
+            <p>Bring your appetite to Fiesta by Barbeque Nation’s Sizzler Fest,...</p>
+            <div class="divider"></div>
+            <div class="meta">📍 <span>Outlets:</span> 1</div>
+            <div class="meta">📅 <span>Days:</span>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div>
+            <button class="explore">Explore Offer →</button>
+        </div>
+
+        <div class="card">
+            <div class="badge">🍽 Dine-In Deal</div>
+            <h4>Sizzling 7@777 – Dine as <br> a group of 7 and enjoy the <br> buffet at just ₹777 per <br> person.</h4>
+            <p>Turn every get-together into a sizzling celebration! Gather your gang of 7 and...</p>
+            <div class="divider"></div>
+            <div class="meta">📍 <span>Outlets:</span> 205</div>
+            <div class="meta">📅 <span>Days:</span>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div>
+            <button class="explore">Explore Offer →</button>
+        </div>
+
+        <div class="card">
+            <div class="badge">🍽 Dine-In Deal</div>
+            <h4>Fiesta Sizzling 7@777-<br> Group of 7 @ Rs 777 per<br> person</h4>
+            <p>Pre-book & pay ₹25/person to grab the deal! Offer valid all days of the week at select restaurants. Find the list below....</p>
+            <div class="divider"></div>
+            <div class="meta">📍 <span>Outlets:</span> 5</div>
+            <div class="meta">📅 <span>Days:</span>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div>
+            <button class="explore">Explore Offer →</button>
+        </div>
+
+        <div class="card">
+            <div class="badge">🍽 Dine-In Deal</div>
+            <h4>Sizzling 5 @555</h4>
+            <p>Make everyday sizzle with our special Sizzling 5@ 555 offer! Come with your...</p>
+            <div class="divider"></div>
+            <div class="meta">📍 <span>Outlets:</span> 7</div>
+            <div class="meta">📅 <span>Days:</span>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div>
+            <button class="explore">Explore Offer →</button>
+        </div>
+
+    </div>
+</section>
+<footer class="footer" style="background: #fff4eb;">
+    <div class="footer-container">
+
+        <!-- Column 1 -->
+        <div class="footer-col logo-col">
+            
+            <a href="#">Our Story</a>
+            <a href="#">News</a>
+            <a href="#">Happiness Card</a>
+            <a href="#">Careers</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+            <a href="#">Location</a>
+            <a href="#">Faq</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">BBQN Partnership</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+            <a href="#">Blogs</a>
+            <a href="#">What's On BBQN</a>
+            <a href="#">Nutrition Information</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+            <a href="#">Corporate Enquiry</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="footer-col right-col">
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+
+            <p class="footer-text">
+                Experience the vibrant atmosphere of our restaurants.
+                Immerse yourself in the aroma of grilled delicacies.
+            </p>
+
+            <div class="store-buttons">
+                <img src="googleplay.jpg" alt="Google Play">
+                <img src="appstore.jpg" alt="App Store">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        <p>© All Rights Reserved by BBQ Nation</p>
+        <div class="bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Term & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

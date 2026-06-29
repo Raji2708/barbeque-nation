@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barbeque Nation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+   <style>
+        .abc{
+            background: #fff4e6;
+        }
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background: white;
+            color: #222;
+            padding-top: 60px;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            background: #fbead6;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h2 
+        {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+     
+
+       .navbar {
+      background: #fbead6;;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        color: #ff6a00;
+        font-size: 20px;
+    }
+
+    .nav-link {
+      font-size: 15px;
+      color: #374151;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-link.active {
+      color: #ff6a00;
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #ff6a00;
+    }
+
+    .new {
+      background: #6dbb1a;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-left: 4px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-btn {
+      background: #ffe6d5;
+      color: #ff6a00;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffe6d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6a00;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffe6d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6a00;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .nav-link:hover
+    {
+        color: #ff6a00;
+    }
+    
+    .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-orange {
+            background: #ff6a00;
+            color: white;
+        }
+
+        .btn-light {
+            background: #ffe4cc;
+            color: #ff6a00;
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin-top: 8px;
+            font-size: 18px;
+            color: #ff6a00;
+            font-style: italic;
+        }
+
+        /* ================= SLIDER ================= */
+        .slider-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 0px;
+        }
+
+        .slider {
+            width: 70%;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            background: black;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= SERVICE CARDS ================= */
+        .card-container{
+            max-width:1200px;
+            margin:60px auto;
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap:25px;
+            padding:0 20px;
+        }
+
+        .card{
+            border-radius:20px;
+            padding:35px 20px;
+            text-align:center;
+            cursor:pointer;
+            transition:transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card img{
+            width:120px;
+            margin-bottom:20px;
+        }
+
+        .card p{
+            font-size:18px;
+            font-weight:500;
+            color:#222;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+        }
+
+        .arrow{
+            font-size:22px;
+            font-weight:600;
+        }
+
+        .card1{ background:#fde7de; }
+        .card2{ background:#e7ffbf; }
+        .card3{ background:#ffe7c2; }
+        .card4{ background:#dff7ff; }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 900px) {
+            nav ul { display: none; }
+            .slider { width: 90%; height: 260px; }
+            .card-container { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 26px; }
+        }
+
+        @media(max-width:500px){
+            .card-container{ grid-template-columns: 1fr; }
+        }
+        /* HAPPINESS CARDS */
+        .happiness-cards 
+        {
+            padding: 2rem;
+        }
+        .cards-container {
+            max-width:1200px;
+            margin:60px auto;
+            display:flex;
+            flex:flex-wrap;
+            gap:25px;
+            padding:0 20px;
+        }
+
+        .h-card {
+            background: #fff;
+            text-align: center;
+            border-radius:20px;
+            padding:35px 20px;
+            text-align:center;
+            cursor:pointer;
+            transition:transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .h-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        /* OFFERINGS */
+.offerings {
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    flex:flex-wrap;
+    gap:25px;
+    padding:0 20px;
+}
+
+
+.left-card1 {
+    border-radius: 22px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.left-card1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- Right Content Card ---------- */
+.right-card1 {
+    background: #fff4e6;
+    border-radius: 22px;
+    padding: 90px 80px;
+}
+
+.right-card1 .label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.right-card1 h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: #2b2b2b;
+    line-height: 1.25;
+    margin-bottom: 40px;
+}
+
+.right-card1 button {
+    background: #ff6a00;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.right-card1 button span {
+    margin-left: 8px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .catering-section {
+        grid-template-columns: 1fr;
+    }
+
+    .right-card1 {
+        padding: 60px 40px;
+        text-align: center;
+    }
+
+    .right-card1 h1 {
+        font-size: 38px;
+    }
+}
+
+.catering-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* ---------- Left Card ---------- */
+.left-card {
+    background: #fff4e6;
+    border-radius: 22px;
+    padding: 90px 80px;
+}
+
+.left-card .label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.left-card h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: #2b2b2b;
+    line-height: 1.25;
+    margin-bottom: 40px;
+}
+
+.left-card button {
+    background: #ff6a00;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.left-card button span {
+    margin-left: 8px;
+}
+
+/* ---------- Right Image Card ---------- */
+.right-card {
+    border-radius: 22px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px #eee inset;
+}
+
+.right-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .catering-section {
+        grid-template-columns: 1fr;
+    }
+
+    .left-card {
+        padding: 60px 40px;
+        text-align: center;
+    }
+
+    .left-card h1 {
+        font-size: 38px;
+    }
+}
+
+
+/* DEALS */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.view-all {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ---------- Cards ---------- */
+.cardx {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.cardxx {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardxx h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.cardxx img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.cardxx p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* ---------- Button ---------- */
+.cardxx button {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #ff6a00;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cardxx button:hover {
+    background: #e85f00;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 24px;
+    }
+}
+
+/* FOOTER */
+.footer {
+    background: #fff4eb;
+    padding: 60px 80px 20px;
+    color: #333;
+}
+
+/* Main Container */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+/* Columns */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #000;
+}
+
+/* Logo */
+.footer-logo {
+    width: 140px;
+    margin-bottom: 20px;
+}
+
+/* Right Column */
+.right-col {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 40px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons i {
+    width: 36px;
+    height: 36px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Text */
+.footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Store Buttons */
+.store-buttons img {
+    width: 150px;
+    display: block;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+.bottom-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.bottom-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .right-col {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+li >a:active
+{
+    color: red;
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="abc">   <!-- HEADER -->
+    <header>
+    <div class="navbar">
+    <div class="nav-left">
+        <div class="logo">
+            🔥 BARBEQUE NATION
+        </div>
+      <a class="nav-link active" >Home</a>
+      <a class="nav-link" href="happiness-card.html">Happiness card</a>
+      <a class="nav-link" href="new.html">Whats on BBQ</a>
+      <a class="nav-link" href="deals.html">Deals</a>
+      <a class="nav-link" href="restaurants.html">Restaurants</a>
+      <a class="nav-link" href="catering.html">Catering <span class="new">New</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-btn">Delivery/Takeaway</div>
+      <div class="nav-btn">📍 Omr, Chennai</div>
+      <div class="icon">👤</div>
+      <div class="icon">☰</div>
+    </div>
+  </div>
+</header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Welcome to Barbeque Nation</h1>
+        <p style="font-weight:750;">your Unlimited Celebration Destination!</p>
+    </section>
+
+    <!-- SLIDER -->
+    <div class="slider-wrapper">
+        <div class="slider">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-slide-to="0" data-target="#myCarousel" class="active"></li>
+            <li data-slide-to="1" data-target="#myCarousel"></li>
+            <li data-slide-to="2" data-target="#myCarousel"></li>
+            <li data-slide-to="4" data-target="#myCarousel"></li>
+        </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="kids.jpg" width="100%">
+        </div>
+        <div class="item">
+            <img src="family.jpg" width="100%">
+        </div>
+        <div class="item">
+            <img src="drinks.jpg" width="100%">
+        </div>
+        <div class="item">
+            <img src="cashback.jpg" width="100%">
+        </div>
+    </div>
+    <a href="#myCarousel" class="left carousel-control" data-slide="prev"></a>
+    <a href="#myCarousel" class="right carousel-control" data-slide="next"></a>
+    </div>
+    </div>
+    </div>
+    <div class="card-container">
+
+    <div class="card card1">
+        <img src="card1.jpg">
+        <p>Reserve Table <span class="arrow">→</span></p>
+    </div>
+
+    <div class="card card2">
+        <img src="card2.jpg">
+        <p>Happiness Cards <span class="arrow">→</span></p>
+    </div>
+
+    <div class="card card3">
+        <img src="card3.jpg">
+        <p>Catering <span class="arrow">→</span></p>
+    </div>
+
+    <div class="card card4">
+        <img src="card4.jpg">
+        <p>Delivery / Takeaway <span class="arrow">→</span></p>
+    </div>
+
+    </div>
+    </div> 
+    <center>
+    <section class="happiness-cards">
+        <h1>Happiness Cards</h1>
+        <div class="cards-container">
+            <div class="h-card">
+                <img src="gift1.jpg" alt="₹1000">
+                <p>Happiness Gift Card ₹1000</p>
+                <button class="btn btn-orange">ADD</button>
+            </div>
+            <div class="h-card">
+                <img src="gift2.jpg" alt="₹2500">
+                <p>Happiness Gift Card ₹2500</p>
+                <button class="btn btn-orange">ADD</button>
+            </div>
+        </div>
+    </section>
+    </center>
+        <!-- Sizzling Deals -->
+    <div class="container">
+
+    <!-- Header -->
+    <div class="section-header">
+        <h2>Sizzling Deals <span style="font-weight:400;">(At your selected restaurant)</span></h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="cardx">
+
+        <!-- Card 1 -->
+        <div class="cardxx">
+            <h3>Republic Day Fest – A Grand Unlimited Buffet...</h3>
+            <img src="sizz1.jpg" alt="">
+            <p>
+                Celebrate the spirit of India with a feast that brings together
+                flavour, festivity, and togetherness.
+            </p>
+            <button>Reserve Table</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cardxx">
+            <h3>Spice Up Your Weekdays with Semma Buffet!</h3>
+            <img src="sizz2.jpg" alt="">
+            <p>
+                Head over to Barbeque Nation and indulge in an all-you-can-eat
+                feast featuring unlimited grills and starters.
+            </p>
+            <button>Reserve Table</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cardxx">
+            <h3>Gather, Grill & Sizzle Together for the Ultimate...</h3>
+            <img src="sizz3.jpg" alt="">
+            <p>
+                Turn every get-together into a sizzling celebration! Bring your
+                gang and enjoy a delicious spread.
+            </p>
+            <button>Reserve Table</button>
+        </div>
+
+    </div>
+</div>
+    <!-- Offerings Section -->
+    <center>
+    <h1>Our Offerings</h1>
+    <section class="offerings">
+        <div class="catering-section">
+
+        <div class="left-card1">
+            <img src="off1.jpg" alt="Catering Image" width="100%">
+        </div>
+
+        <!-- Right Content -->
+        <div class="right-card1">
+            <div class="label">BARBEQUE NATION</div>
+            <h1>
+                Dine Out With<br>
+                Barbeque Nation
+            </h1>
+            <button>
+                Send Enquiry <span>→</span>
+            </button>
+        </div>
+    </div>
+    </section>
+    <section class="offerings catering-offer">
+        <div class="catering-section">
+
+        <!-- Left Content -->
+        <div class="left-card">
+            <div class="label">ATMOSFIRE</div>
+            <h1>
+                Catering By<br>
+                Barbeque Nation
+            </h1>
+            <button class="btn btn-orange">
+                Send Enquiry <span>→</span>
+            </button>
+        </div>
+
+        <!-- Right Image -->
+        <div class="right-card">
+            <img src="off2.jpg" alt="Catering Service">
+        </div>
+    </div>
+    </section>
+</center>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="footer-container">
+
+        <!-- Column 1 -->
+        <div class="footer-col logo-col">
+            
+            <a href="#">Our Story</a>
+            <a href="#">News</a>
+            <a href="#">Happiness Card</a>
+            <a href="#">Careers</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+            <a href="#">Location</a>
+            <a href="#">Faq</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">BBQN Partnership</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+            <a href="#">Blogs</a>
+            <a href="#">What's On BBQN</a>
+            <a href="#">Nutrition Information</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+            <a href="#">Corporate Enquiry</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="footer-col right-col">
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+
+            <p class="footer-text">
+                Experience the vibrant atmosphere of our restaurants.
+                Immerse yourself in the aroma of grilled delicacies.
+            </p>
+
+            <div class="store-buttons">
+                <img src="googleplay.jpg" alt="Google Play">
+                <img src="appstore.jpg" alt="App Store">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        <p>© All Rights Reserved by BBQ Nation</p>
+        <div class="bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Term & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
